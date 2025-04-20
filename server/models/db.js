@@ -1,22 +1,17 @@
 const mongoose = require('mongoose');
-require('dotenv').config();
 
-mongoose.connect('');
-
-const todoSchema = new mongoose.Schema({
+const taskSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
     trim: true,
-    minLength: 1,
-    maxLengh: 30,
+    maxlength: 100,
   },
   description: {
     type: String,
     required: true,
-    minLength: 1,
-    maxLengh: 100,
     trim: true,
+    maxlength: 500,
   },
   completed: {
     type: Boolean,
@@ -24,6 +19,6 @@ const todoSchema = new mongoose.Schema({
   },
 });
 
-const TODO = mongoose.model('TODO', todoSchema);
+const Task = mongoose.model('Task', taskSchema);
 
-module.exports = TODO;
+module.exports = Task;
